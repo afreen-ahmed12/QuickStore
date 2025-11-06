@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickStore - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Parse SDK -->
+    <script src="https://unpkg.com/parse/dist/parse.min.js"></script>
+    <!-- Parse Configuration -->
+    <script src="config.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>QuickStore</h2>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <span id="userInitial"></span>
+                </div>
+                <p id="userName"></p>
+                <p class="user-email" id="userEmail"></p>
+            </div>
+            <nav class="sidebar-nav">
+                <h3>Categories</h3>
+                <ul class="category-list">
+                    <li><button class="category-btn active" data-category="all">All Items</button></li>
+                    <li><button class="category-btn" data-category="books">📚 Books</button></li>
+                    <li><button class="category-btn" data-category="tedx">🎤 TEDx</button></li>
+                    <li><button class="category-btn" data-category="channels">📺 Channels</button></li>
+                    <li><button class="category-btn" data-category="links">🔗 Links</button></li>
+                    <li><button class="category-btn" data-category="repositories">💻 Repositories</button></li>
+                    <li><button class="category-btn" data-category="messages">💬 Messages</button></li>
+                    <li><button class="category-btn" data-category="files">📁 Files</button></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="currentCategory">All Items</h1>
+                <button id="addItemBtn" class="btn btn-primary">+ Add New Item</button>
+            </header>
+
+            <!-- Items Grid -->
+            <div class="items-container" id="itemsContainer">
+                <!-- Items will be dynamically inserted here -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState">
+                <p>No items yet. Click "Add New Item" to get started!</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Item Modal -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Item</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <form id="itemForm">
+                <input type="hidden" id="itemId">
+                <div class="form-group">
+                    <label for="itemCategory">Category</label>
+                    <select id="itemCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="books">📚 Books</option>
+                        <option value="tedx">🎤 TEDx</option>
+                        <option value="channels">📺 Channels</option>
+                        <option value="links">🔗 Links</option>
+                        <option value="repositories">💻 Repositories</option>
+                        <option value="messages">💬 Messages</option>
+                        <option value="files">📁 Files</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="itemTitle">Title</label>
+                    <input type="text" id="itemTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemUrl">URL / Link (optional)</label>
+                    <input type="url" id="itemUrl" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label for="itemDescription">Description / Notes</label>
+                    <textarea id="itemDescription" rows="4"></textarea>
+                </div>
+                <div class="form-group" id="fileUploadGroup">
+                    <label for="itemFile">Upload File (optional)</label>
+                    <input type="file" id="itemFile" accept="*/*">
+                    <small>File will be stored in Parse/Back4App cloud storage</small>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
+
