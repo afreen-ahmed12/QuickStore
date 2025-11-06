@@ -1,0 +1,19 @@
+{
+  "name": "quickstore",
+  "version": "1.0.0",
+  "description": "QuickStore - A personal storage diary for links, text, messages, and files",
+  "main": "server.js",
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "install-all": "npm install && cd frontend && npm install",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": ["storage", "links", "diary", "webapp"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
