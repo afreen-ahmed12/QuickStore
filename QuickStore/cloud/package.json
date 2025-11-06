@@ -1,0 +1,10 @@
+{
+  "name": "quickstore-cloud",
+  "version": "1.0.0",
+  "description": "QuickStore Parse Cloud Code",
+  "main": "main.js",
+  "dependencies": {
+    "parse": "^3.4.3"
+  }
+}
+
