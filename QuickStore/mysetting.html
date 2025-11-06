@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickStore - My Settings</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/parse@3.4.3/dist/parse.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>QuickStore</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="mysetting.html" class="active">My Settings</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>My Settings</h1>
+        </div>
+
+        <div class="settings-content">
+            <div class="settings-card">
+                <h2>Account Information</h2>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="settingsUsername" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="settingsEmail" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Account Created</label>
+                    <input type="text" id="settingsCreated" readonly>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h2>Account Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3 id="totalItems">0</h3>
+                        <p>Total Items</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="totalFolders">0</h3>
+                        <p>Folders</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="totalLinks">0</h3>
+                        <p>Links</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="totalFiles">0</h3>
+                        <p>Files</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="totalFavorites">0</h3>
+                        <p>Favorites ⭐</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card danger-zone">
+                <h2>Danger Zone</h2>
+                <p>These actions cannot be undone. Please be careful.</p>
+                <button class="btn btn-danger" onclick="deleteAccount()">Delete My Account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Account Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Delete Account</h2>
+            <p>Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently deleted.</p>
+            <div class="modal-actions">
+                <button class="btn btn-danger" onclick="confirmDeleteAccount()">Yes, Delete Account</button>
+                <button class="btn btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
